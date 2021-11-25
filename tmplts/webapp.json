@@ -47,7 +47,7 @@
           }
       },
       {
-          "name": "[concat(parameters('webappname'),copyIndex(5))]",
+          "name":"[parameters('webappname')]",
           "type": "Microsoft.Web/sites",
           "apiVersion": "2020-12-01",
           "location": "[resourceGroup().location]",
@@ -59,13 +59,10 @@
               "[resourceId('Microsoft.Web/serverfarms', parameters('aspname'))]"
           ],
           "properties": {
-              "name": "[concat(parameters('webappname'),copyIndex(5))]",
+              "name": "[parameters('webappname')]",
               "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('aspname'))]"
-          },
-          "copy": {
-              "name": "wappcopy",
-              "count": 1
           }
+          
       }
     ],
     "outputs": {}
